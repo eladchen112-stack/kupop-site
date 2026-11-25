@@ -1,4 +1,4 @@
-/* Shared look of the text pages (privacy, terms). Same palette as index.html. */
+/* Shared look of the text pages (privacy, terms, contact). Same palette as index.html. */
 :root{
   --ink:#06130D; --green:#14804F; --green-2:#1FA568; --gold:#FFC21A;
   --bg:#F5F2E8; --surface:#FFFDF7; --text:#0F2219; --muted:#5C6F64; --line:rgba(15,34,25,.12); --link:#14804F;
@@ -43,3 +43,30 @@ footer{max-width:800px; margin:0 auto; padding:0 clamp(16px,4vw,32px) 48px; colo
   display:flex; flex-wrap:wrap; gap:6px 22px; align-items:center}
 footer a{color:inherit; text-decoration:none; min-height:44px; display:inline-flex; align-items:center}
 footer a:hover{color:var(--text)}
+
+/* Contact form (contact.html) */
+:root{--error:#B3261E}
+@media (prefers-color-scheme: dark){ :root{--error:#FF9B8F} }
+.form{display:grid; gap:18px; margin:22px 0 0}
+.field{display:grid; gap:6px}
+.field label{font-weight:500}
+.field input,.field textarea{width:100%; min-height:48px; padding:11px 14px; font:inherit; line-height:1.6; color:var(--text);
+  background:var(--bg); border:1.5px solid var(--muted); border-radius:14px; -webkit-appearance:none; appearance:none}
+.field textarea{min-height:170px; resize:vertical; display:block}
+.field input[dir="ltr"]{text-align:left}
+.field input:focus-visible,.field textarea:focus-visible{border-color:var(--green); border-radius:14px; outline-offset:2px}
+.field [aria-invalid="true"]{border-color:var(--error)}
+.err{margin:0; color:var(--error); font-size:.92rem}
+.hp{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap}
+.actions{display:grid; gap:10px; justify-items:start}
+.actions .meta{margin:0}
+.send{min-height:48px; padding:0 34px; font:inherit; font-weight:700; color:#fff; background:var(--green); border:0;
+  border-radius:999px; cursor:pointer}
+.send:hover{background:#0F6B41}
+.send[disabled]{opacity:.65; cursor:progress}
+.notice{margin:0; padding:14px 18px; border-radius:16px}
+.notice.bad{background:rgba(179,38,30,.08); box-shadow:inset 0 0 0 1.5px var(--error)}
+.notice.ok{margin-top:22px; padding:20px 22px; background:rgba(20,128,79,.1); box-shadow:inset 0 0 0 1.5px var(--green)}
+.notice.ok h2{margin:0 0 4px}
+.notice.ok p{margin:0}
+[hidden]{display:none !important}
